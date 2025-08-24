@@ -10,12 +10,21 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// ? PostgreSQL DbContext
+// 加入 PostgreSQL DbContext
 builder.Services.AddPostgresDbContext(builder.Configuration);
+
+// CORS
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(policy =>
+    {
+        policy.WithOrigins("http://localhost:7414").AllowAnyHeader().AllowAnyMethod();
+    });
+});
 
 var app = builder.Build();
 
-// ?芸??瑞宏?車摮???
+// 自動遷移與種子資料
 app.Services.MigrateDatabase();
 app.Services.SeedData();
 
@@ -27,7 +36,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+app.UseCors(); // 加在 UseAuthorization 之前
 app.UseAuthorization();
 
 app.MapControllers();
