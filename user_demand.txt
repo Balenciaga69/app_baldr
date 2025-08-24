@@ -1,0 +1,10 @@
+﻿需要示範的常見 Web 安全漏洞類型包括：
+SQLi,
+XSS,
+CSRF,
+File Upload Vulnerability,
+Weak Passwords & User Enumeration,
+CORS Misconfiguration,
+Denial of Service,
+DoS,
+Sensitive Data Exposure
