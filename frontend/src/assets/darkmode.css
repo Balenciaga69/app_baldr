@@ -1,0 +1,17 @@
+body[data-bs-theme="dark"] {
+  background-color: #181a1b;
+  color: #f8f9fa;
+}
+
+/* 讓 input、button 在暗黑模式下也有合適顏色 */
+body[data-bs-theme="dark"] input,
+body[data-bs-theme="dark"] textarea {
+  background-color: #23272b;
+  color: #f8f9fa;
+  border-color: #495057;
+}
+body[data-bs-theme="dark"] button {
+  background-color: #343a40;
+  color: #f8f9fa;
+  border-color: #495057;
+}

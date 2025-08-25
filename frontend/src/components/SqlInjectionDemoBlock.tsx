@@ -8,6 +8,11 @@ export const SqlInjectionDemoBlock: React.FC = () => {
   const [userName, setUserName] = useState('')
   const [unsafeResult, setUnsafeResult] = useState<any>(null)
   const [safeResult, setSafeResult] = useState<any>(null)
+  const [dark, setDark] = useState<boolean>(true)
+
+  React.useEffect(() => {
+    document.body.setAttribute('data-bs-theme', dark ? 'dark' : 'light')
+  }, [dark])
 
   const handleUnsafe = async () => {
     try {
@@ -28,18 +33,53 @@ export const SqlInjectionDemoBlock: React.FC = () => {
   }
 
   return (
-    <div>
-      <h3>SQL Injection Demo</h3>
-      {/*提示語法: ' OR 1=1 -- */}
-      <input value={userName} onChange={(e) => setUserName(e.target.value)} placeholder='UserName' />
-      <button onClick={handleUnsafe}>查詢(不安全)</button>
-      <button onClick={handleSafe}>查詢(安全)</button>
-      <div>
-        <div>
-          不安全查詢結果: <pre>{JSON.stringify(unsafeResult, null, 2)}</pre>
+    <div className='container py-4'>
+      <div className='d-flex justify-content-between align-items-center mb-3'>
+        <h3 className='mb-0'>SQL Injection Demo</h3>
+        <button className='btn btn-outline-secondary' onClick={() => setDark((d) => !d)}>
+          {dark ? '☾ 暗黑' : '☀️ 明亮'}
+        </button>
+      </div>
+      <div className='mb-3'>
+        <label htmlFor='userName' className='form-label'>
+          UserName
+        </label>
+        <input
+          id='userName'
+          className='form-control'
+          value={userName}
+          onChange={(e) => setUserName(e.target.value)}
+          placeholder="可嘗試: ' OR 1=1 --"
+        />
+      </div>
+      <div className='mb-3 d-flex gap-2'>
+        <button className='btn btn-danger' onClick={handleUnsafe}>
+          查詢(不安全)
+        </button>
+        <button className='btn btn-success' onClick={handleSafe}>
+          查詢(安全)
+        </button>
+      </div>
+      <div className='row'>
+        <div className='col-md-6 mb-3'>
+          <div className='card bg-dark text-light h-100'>
+            <div className='card-header'>不安全查詢結果</div>
+            <div className='card-body'>
+              <pre className='mb-0' style={{ whiteSpace: 'pre-wrap', wordBreak: 'break-all' }}>
+                {JSON.stringify(unsafeResult, null, 2)}
+              </pre>
+            </div>
+          </div>
         </div>
-        <div>
-          安全查詢結果: <pre>{JSON.stringify(safeResult, null, 2)}</pre>
+        <div className='col-md-6 mb-3'>
+          <div className='card bg-success-subtle text-dark h-100'>
+            <div className='card-header'>安全查詢結果</div>
+            <div className='card-body'>
+              <pre className='mb-0' style={{ whiteSpace: 'pre-wrap', wordBreak: 'break-all' }}>
+                {JSON.stringify(safeResult, null, 2)}
+              </pre>
+            </div>
+          </div>
         </div>
       </div>
     </div>
