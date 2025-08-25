@@ -74,6 +74,16 @@ export const XssDemoBlock: React.FC = () => {
     <div className='container py-4'>
       <div className='mb-4'>
         <h3>XSS Demo</h3>
+        <div className='alert alert-info'>
+          <strong>XSS 基本概念：</strong><br />
+          XSS 是一種代碼注入攻擊，攻擊者將惡意腳本注入到網頁中，當其他用戶瀏覽該網頁時，惡意腳本會在其瀏覽器中執行。<br />
+          主要有三種類型：
+          <ul className='mb-0'>
+            <li><strong>Stored XSS (儲存型)</strong>：惡意腳本被永久儲存在目標伺服器上</li>
+            <li><strong>Reflected XSS (反射型)</strong>：惡意腳本通過 URL 參數等方式反射回用戶</li>
+            <li><strong>DOM-based XSS</strong>：通過修改 DOM 環境來執行惡意腳本</li>
+          </ul>
+        </div>
       </div>
       {/* Reflected XSS 示範 */}
       <div className='card mb-4'>
