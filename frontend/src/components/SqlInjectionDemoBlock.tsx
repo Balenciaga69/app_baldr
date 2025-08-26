@@ -37,8 +37,8 @@ export const SqlInjectionDemoBlock: React.FC = () => {
 
   return (
     <>
-      <LoadingOverlay show={loading} message="查詢中..." />
-      <CollapsibleSection title="SQL Injection Demo">
+      <LoadingOverlay show={loading} message='查詢中...' />
+      <CollapsibleSection title='SQL Injection Demo'>
         <div className='mb-3'>
           <label htmlFor='userName' className='form-label'>
             UserName
@@ -61,7 +61,7 @@ export const SqlInjectionDemoBlock: React.FC = () => {
         </div>
         <div className='row'>
           <div className='col-md-6 mb-3'>
-            <div className='card bg-dark text-light h-100'>
+            <div className='card h-100'>
               <div className='card-header'>不安全查詢結果</div>
               <div className='card-body'>
                 <pre className='mb-0' style={{ whiteSpace: 'pre-wrap', wordBreak: 'break-all' }}>
@@ -71,7 +71,7 @@ export const SqlInjectionDemoBlock: React.FC = () => {
             </div>
           </div>
           <div className='col-md-6 mb-3'>
-            <div className='card bg-success-subtle text-dark h-100'>
+            <div className='card h-100'>
               <div className='card-header'>安全查詢結果</div>
               <div className='card-body'>
                 <pre className='mb-0' style={{ whiteSpace: 'pre-wrap', wordBreak: 'break-all' }}>
