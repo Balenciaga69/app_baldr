@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState } from 'react'
 import axios from 'axios'
+import { CollapsibleSection } from './CollapsibleSection'
 
 const API_BASE = 'http://localhost:5159/api/SQLInjectionDemo'
 
@@ -8,11 +9,6 @@ export const SqlInjectionDemoBlock: React.FC = () => {
   const [userName, setUserName] = useState('')
   const [unsafeResult, setUnsafeResult] = useState<any>(null)
   const [safeResult, setSafeResult] = useState<any>(null)
-  const [dark, setDark] = useState<boolean>(true)
-
-  React.useEffect(() => {
-    document.body.setAttribute('data-bs-theme', dark ? 'dark' : 'light')
-  }, [dark])
 
   const handleUnsafe = async () => {
     try {
@@ -33,13 +29,7 @@ export const SqlInjectionDemoBlock: React.FC = () => {
   }
 
   return (
-    <div className='container py-4'>
-      <div className='d-flex justify-content-between align-items-center mb-3'>
-        <h3 className='mb-0'>SQL Injection Demo</h3>
-        <button className='btn btn-outline-secondary' onClick={() => setDark((d) => !d)}>
-          {dark ? '☾ 暗黑' : '☀️ 明亮'}
-        </button>
-      </div>
+    <CollapsibleSection title="SQL Injection Demo">
       <div className='mb-3'>
         <label htmlFor='userName' className='form-label'>
           UserName
@@ -82,6 +72,6 @@ export const SqlInjectionDemoBlock: React.FC = () => {
           </div>
         </div>
       </div>
-    </div>
+    </CollapsibleSection>
   )
 }
