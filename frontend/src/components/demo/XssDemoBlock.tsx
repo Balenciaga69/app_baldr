@@ -1,8 +1,9 @@
 import axios from 'axios'
 import React, { useState } from 'react'
-import { CollapsibleSection } from './CollapsibleSection'
-import { LoadingOverlay } from './LoadingOverlay'
-import { useLoading } from '../hooks/useLoading'
+import { useLoading } from '../../hooks/useLoading'
+import { CollapsibleSection } from '../shared/CollapsibleSection'
+import { InfoAlert } from '../shared/InfoAlert'
+import { LoadingOverlay } from '../shared/LoadingOverlay'
 
 const API_BASE = 'http://localhost:5159/api/XSSDemo'
 
@@ -88,9 +89,7 @@ export const XssDemoBlock: React.FC = () => {
     <>
       <LoadingOverlay show={loading} message='處理中...' />
       <CollapsibleSection title='XSS Demo'>
-        <div className='alert alert-info'>
-          <strong>XSS 基本概念：</strong>
-          <br />
+        <InfoAlert title='XSS 基本概念：'>
           XSS 是一種代碼注入攻擊，攻擊者將惡意腳本注入到網頁中，當其他用戶瀏覽該網頁時，惡意腳本會在其瀏覽器中執行。
           <br />
           主要有三種類型：
@@ -105,7 +104,7 @@ export const XssDemoBlock: React.FC = () => {
               <strong>DOM-based XSS</strong>：通過修改 DOM 環境來執行惡意腳本
             </li>
           </ul>
-        </div>
+        </InfoAlert>
         {/* Reflected XSS 示範 */}
         <div className='card mb-4'>
           <div className='card-header'>
