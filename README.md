@@ -1,6 +1,7 @@
 # app_baldr - 網頁安全漏洞示範專案
 
 ## 專案簡介
+
 app_baldr 是用於向同事快速展示網頁安全漏洞的示範專案。
 專案包含了多種常見網頁安全漏洞的實作範例，同時提供了正確的防護措施對照。通過對比錯誤和正確的實作方式，開發者可以更深入理解這些安全漏洞的形成原因和防護方法。
 
@@ -14,21 +15,15 @@ app_baldr 是用於向同事快速展示網頁安全漏洞的示範專案。
 
 ### 前端技術
 
-- **React**: 用於構建使用者介面
-- **TypeScript**: 提供強型別支持
-- **React Router**: 處理前端路由
-- **Axios**: 處理 HTTP 請求
+React, TypeScript, React Router, Axios
 
 ### 後端技術
 
-- **C# .NET 8**: 後端開發框架
-- **Entity Framework Core**: ORM 框架
-- **PostgreSQL**: 資料庫系統
+C# .NET 8, Entity Framework Core, PostgreSQL
 
 ### 開發工具
 
-- **Vite**: 前端構建工具
-- **ESLint**: 程式碼檢查工具
+Vite, ESLint
 
 ## 功能概述
 
