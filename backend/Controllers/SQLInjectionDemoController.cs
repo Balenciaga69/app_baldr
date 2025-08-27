@@ -17,7 +17,6 @@ public class SQLInjectionDemoController : ControllerBase
     }
 
     // 演示 SQL Injection 漏洞（錯誤示範）
-    // GET: api/SQLInjectionDemo/unsafe?userName=xxx
     [HttpGet("unsafe")]
     public async Task<IActionResult> UnsafeGetUser(string userName)
     {
@@ -28,7 +27,6 @@ public class SQLInjectionDemoController : ControllerBase
     }
 
     // 修正版：安全查詢（參數化）
-    // GET: api/SQLInjectionDemo/safe?userName=xxx
     [HttpGet("safe")]
     public async Task<IActionResult> SafeGetUser(string userName)
     {

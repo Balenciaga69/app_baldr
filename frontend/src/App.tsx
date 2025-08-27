@@ -1,6 +1,6 @@
-import { SqlInjectionDemoBlock } from './components/SqlInjectionDemoBlock'
-import { XssDemoBlock } from './components/XssDemoBlock'
-import { TopBar } from './components/TopBar'
+import { SqlInjectionDemoBlock } from './components/demo/SqlInjectionDemoBlock'
+import { XssDemoBlock } from './components/demo/XssDemoBlock'
+import { TopBar } from './components/shared/TopBar'
 
 function App() {
   return (
